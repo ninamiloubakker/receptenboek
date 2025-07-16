@@ -4,13 +4,7 @@ import { recipes } from "@/data/recipes";
 import { notFound } from "next/navigation";
 import { useEffect, useState } from "react";
 
-type PageProps = {
-  params: {
-    slug: string;
-  };
-};
-
-export default function ReceptPage({ params }: PageProps) {
+export default function ReceptPage({ params }: { params: { slug: string } }) {
   const recipe = recipes.find((r) => r.slug === params.slug);
 
   const localStorageKey = `notitie-${params.slug}`;
